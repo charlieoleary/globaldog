@@ -52,7 +52,7 @@ handleErrors(screenboard)
 for widget in screenboard["widgets"]:
     if widget.get("time"):
         widget["time"] = {}
-        print("+ Updated '{}' widget..." % widget["title_text"])
+        print("+ Updated '%s' widget..." % widget["title_text"])
 
 # append the global time remark to the dashboard title.
 screenboard["board_title"] = "{} {}".format(screenboard["board_title"], "(Global Time)")
