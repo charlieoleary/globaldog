@@ -1,4 +1,4 @@
-# globaldog
+# 🌎🐶globaldog
 
 Ever want to convert an existing Datadog screenboard to use the new global time option? This script
 will make it a much easier task.
