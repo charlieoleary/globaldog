@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import json
 import argparse
 import os
@@ -26,6 +26,11 @@ datadogCredentials = {
     "api_key": os.environ.get("DATADOG_API_KEY"),
     "app_key": os.environ.get("DATADOG_APP_KEY"),
 }
+
+if datadogCredentials["api_key"] == None or datadogCredentials["app_key"] == None:
+    print("It looks like your Datadog credentials are either unset or incorrect.")
+    print("Be sure you have set DATADOG_API_KEY and DATADOG_APP_KEY environment variables then try again.")
+    exit(1)
 
 initialize(**datadogCredentials)
 
@@ -55,7 +60,8 @@ for widget in screenboard["widgets"]:
         print("+ Updated '%s' widget..." % widget["title_text"])
 
 # append the global time remark to the dashboard title.
-screenboard["board_title"] = "{} {}".format(screenboard["board_title"], "(Global Time)")
+screenboard["board_title"] = "{} {}".format(
+    screenboard["board_title"], "(Global Time)")
 
 print("Sending updated screenboard to Datadog...")
 
