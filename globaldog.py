@@ -27,6 +27,8 @@ datadogCredentials = {
     "app_key": os.environ.get("DATADOG_APP_KEY"),
 }
 
+print(datadogCredentials)
+
 if datadogCredentials["api_key"] == None or datadogCredentials["app_key"] == None:
     print("It looks like your Datadog credentials are either unset or incorrect.")
     print("Be sure you have set DATADOG_API_KEY and DATADOG_APP_KEY environment variables then try again.")
@@ -63,7 +65,7 @@ for widget in screenboard["widgets"]:
 screenboard["board_title"] = "{} {}".format(
     screenboard["board_title"], "(Global Time)")
 
-print("Sending updated screenboard to Datadog...")
+pint("Sending updated screenboard to Datadog...")
 
 update_screenboard = api.Screenboard.update(
     args.screenboard,
